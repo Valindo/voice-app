@@ -91,7 +91,7 @@ public class MainActivity extends Activity {
         public ThreadConnectBTdevice(){
             BluetoothServerSocket tmp= null;
             try{
-                tmp= bluetoothAdapter.listenUsingInsecureRfcommWithServiceRecord(null,myUUID);
+                tmp= bluetoothAdapter.listenUsingInsecureRfcommWithServiceRecord("voiceapp2",myUUID);
             }
             catch (IOException e){}
             bluetoothSocket = tmp;
@@ -262,6 +262,7 @@ public class MainActivity extends Activity {
     public void SearchBlue(View view) {
 
         Intent intBlue = new Intent();
+        bluetoothAdapter.enable();
         intBlue.setAction(Settings.ACTION_BLUETOOTH_SETTINGS);
         startActivity(intBlue);
 
